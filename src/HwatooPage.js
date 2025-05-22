@@ -59,7 +59,8 @@ export default function HwatooPage() {
             const means = pickCards.flatMap(card => card.means).join(", ");
             const command = `${means} 이라는 단어들을 가지고 5줄 정도의 문장을 만들어줘`;
 
-            const apiUrl = "https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=AIzaSyBb_y1gPw-DyZZlpgVMyx7AzqGurNGi6lc";
+            const apiKey = process.env.REACT_APP_GEMINI_API_KEY;
+            const apiUrl = "https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=" + apiKey;
             const data = { "contents": [{ "parts": [{ "text": command }] }] };
 
             try {
