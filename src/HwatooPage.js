@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
+import HwatooCard from "./components/HwatooCard";
 
 const cards = [
     { name: '1월', imgName: '1.jpg', means: ['소식', '손님', '남자'] },
@@ -21,6 +22,11 @@ export default function HwatooPage() {
     const [pickCards, setPickCards] = useState([]);
     const [response, setResponse] = useState("");
     const [isLoading, setIsLoading] = useState(false);
+
+    useEffect(() => {
+        console.log('page created!');
+        return () => console.log('page dead!');
+    }, []);
 
     // 카드 섞기
     const handleMixCards = () => {
@@ -83,27 +89,7 @@ export default function HwatooPage() {
                 <div>
                     <h1>카드를 선택하세요</h1>
                     {mixCards.map((card) => (
-                        <div
-                            key={card.name}
-                            onClick={() => handlePickCard(card.name)}
-                            style={{
-                                border: card.selected ? "2px solid red" : "none",
-                                display: "inline-block",
-                                margin: "5px",
-                                cursor: "pointer"
-                            }}
-                        >
-                            {card.selected ? (
-                                <div>
-                                    <img src={`/images/${card.imgName}`} alt={card.name} />
-                                    <p>{card.name}</p>
-                                </div>
-                            ) : (
-                                <div>
-                                    <img src={`/images/back.jpg`} alt="back" />
-                                </div>
-                            )}
-                        </div>
+                        <HwatooCard key={card.name} card={card} onClickFunc={handlePickCard}/>
                     ))}
                     {pickCards.length === 2 && (
                         <div>
