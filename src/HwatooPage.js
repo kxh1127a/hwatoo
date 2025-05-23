@@ -36,6 +36,8 @@ export default function HwatooPage() {
         setMixCards(shuffled);
         setPickCards([]);
         setResponse("");
+
+        console.log(response);
     };
 
     // 카드 선택
