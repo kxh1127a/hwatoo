@@ -1,0 +1,50 @@
+.hwatoo-card {
+    width: 140px;
+    height: 200px;
+    background-color: #1e1e1e;
+    border-radius: 16px;
+    box-shadow: 0 0 10px rgba(130, 90, 230, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    margin: 10px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    user-select: none;
+    border: 2px solid transparent;
+}
+
+.hwatoo-card:hover {
+    box-shadow: 0 0 20px #8a2be2;
+    transform: translateY(-6px);
+}
+
+.hwatoo-card.selected {
+    border-color: #8a2be2;
+    box-shadow: 0 0 25px #9b30ff;
+    transform: scale(1.05);
+}
+
+.hwatoo-card img {
+    width: 120px;
+    height: 140px;
+    object-fit: contain;
+    border-radius: 12px 12px 0 0;
+    background-color: #121212;
+}
+
+.card-text {
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 16px;
+    color: #cdb4db;
+    height: 28px;
+    text-align: center;
+    user-select: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card-text.visible {
+    opacity: 1;
+}
